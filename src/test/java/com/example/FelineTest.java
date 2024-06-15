@@ -5,17 +5,17 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
-
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
-    @Spy
-    private Feline feline;
     @Test
     public void getFamily() {
+        Feline feline = new Feline();
         Assert.assertEquals("Ожидалося результат \"Кошачьи\", но результат отличается", "Кошачьи", feline.getFamily());
     }
+    @Spy
+    private Feline feline;
     @Test
     public void getKittens() {
         Feline feline = new Feline();
@@ -26,7 +26,6 @@ public class FelineTest {
         Feline feline = new Feline();
         Assert.assertEquals(2, feline.getKittens(2));
     }
-
     @Test
     public void eatMeat()throws Exception{
         Feline feline = new Feline();
